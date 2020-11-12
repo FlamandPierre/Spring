@@ -21,9 +21,7 @@ public class User {
         this.age = age;
     }
 
-    public void setHobby(String hobby) {
-        this.hobby = hobby;
-    }
+    public void setHobby(String hobby) { this.hobby = hobby;  }
 
     public void setMale(Boolean male) {
         this.male = male;

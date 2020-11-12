@@ -6,6 +6,6 @@
     <title>Gift</title>
 </head>
 <body>
-    <p>Bravo, inscription réussie !</p>
+    <p>"Congratulation ${name}, you will receive ${gift} !"</p>
 </body>
 </html>

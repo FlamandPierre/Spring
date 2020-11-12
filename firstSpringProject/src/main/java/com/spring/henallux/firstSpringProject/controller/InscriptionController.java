@@ -9,13 +9,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import javax.validation.Valid;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
 @RequestMapping(value="/inscription")
+@SessionAttributes({Constants.CURRENT_USER})
 public class InscriptionController {
 
     private HobbiesService hobbiesService;
-
+    @ModelAttribute(Constants.CURRENT_USER)
+    public User user() {
+        return new User();
+    }
     @Autowired
     public InscriptionController(HobbiesService hobbiesService) {
         this.hobbiesService = hobbiesService;
@@ -30,10 +35,10 @@ public class InscriptionController {
 
     @RequestMapping(value="/send", method = RequestMethod.POST)
     public String getFormData(Model model,
-                              @Valid @ModelAttribute(value="user") User user,
+                              @Valid @ModelAttribute(value=Constants.CURRENT_USER) User user,
                               final BindingResult errors) {
         if (!errors.hasErrors()) {
-            return "integrated:gift";
+            return "redirect:/gift";
         }
         else {
             return "redirect:/inscription";

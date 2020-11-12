@@ -10,7 +10,7 @@
     <form:form id="userIncription"
                method="POST"
                action="/firstSpring/inscription/send"
-               modelAttribute="user">
+               modelAttribute="currentUser">
         <form:label path="name">Name</form:label>
         <form:input path="name"/>
         <form:errors path="name"/>
@@ -20,9 +20,11 @@
         <form:radiobutton path="male" value="true" label="Boy"/>
         <form:radiobutton path="male" value="false" label="Girl"/>
         <form:select path="hobby">
-            <form:options items="${hobbies}" itemValue="id" itemLabel="name"/>
+            <form:options items="${hobbies}" itemValue="name" itemLabel="name"/>
         </form:select>
-        <form:button>Send</form:button>
+        <form:button>
+            <spring:message code="magicKeySendButton"/>
+        </form:button>
 
     </form:form>
 </body>

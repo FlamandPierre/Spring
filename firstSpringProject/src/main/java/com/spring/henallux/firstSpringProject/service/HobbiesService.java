@@ -10,7 +10,7 @@ public class HobbiesService {
     private ArrayList<Hobby> hobbiesList;
 
     public HobbiesService() {
-        hobbiesList = new ArrayList<Hobby>();
+        hobbiesList = new ArrayList<>();
         hobbiesList.add(new Hobby("spt","Sport"));
         hobbiesList.add(new Hobby("nat", "Nature"));
         hobbiesList.add(new Hobby("rdg", "Reading"));
